@@ -1,6 +1,7 @@
 import queue
 from bs4 import BeautifulSoup
 from .indexer import *
+import re
 
 
 class Crawler:
@@ -12,10 +13,10 @@ class Crawler:
         web_page_summary = {
             'url': url,
             'title': soup.title.string if soup.title else "",
-            'text': soup.get_text()
+            'text':  re.findall(r'[a-zA-Z0-9]+', soup.get_text().lower())
         }
         self.indexer.all_pages.append(web_page_summary)
-        words_in_page = web_page_summary['text'].lower().split()
+        words_in_page = web_page_summary['text']
 
         self.indexer.update_indexer(words_in_page,url)
         

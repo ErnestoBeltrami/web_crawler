@@ -13,8 +13,8 @@ headers = {
 
 
 print('hello')
-
-url_queue = url_queue.UrlQueue(5,urls)
+depth = int(input("Number of pages: "))
+url_queue = url_queue.UrlQueue(depth,urls)
 url_queue.start(headers)
 
 target_word = input()
