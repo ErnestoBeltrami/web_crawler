@@ -25,11 +25,3 @@ class Crawler:
             if link_url and link_url.startswith("http") and link_url not in set_url:
                 queue_url.put(link_url)
    
-    def print_urls(self,target):
-        if target in self.indexer.inverted_index:
-            self.indexer.print_urls(target)
-        else:
-            print("research was unsuccessful")
-
-
-

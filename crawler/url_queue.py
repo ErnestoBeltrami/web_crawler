@@ -38,6 +38,5 @@ class UrlQueue:
 
         print('done')
   
-
-    def print_urls(self,target):
-        self.crawler.print_urls(target)
+    def get_indexer(self):
+        return self.crawler.indexer
